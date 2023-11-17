@@ -1,0 +1,10 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
+li {
+    list-style: none;
+    cursor: pointer;
+    position: relative;
+}
