@@ -2,24 +2,25 @@ import React from 'react'
 
 export const Hero = () => {
   return (
-    <div className='heroWrapper flex mt-6 p-4'>
-    <div className='cardWrapper grid grid-cols-2'>
-      <div className='col-span-1'>
-        <h1 className=''>little lemon</h1>
-        <h2>chicago</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, 
-          repellat optio quia dolor aliquid voluptates repellendus molestiae. Provident, 
-          repellat error.
-        </p>
+    <div className='heroWrapper flex mt-6 m-10 rounded-xl bg-whitish p-10'>
+      <div className='cardWrapper grid grid-cols-2'>
+        <div className='col-span-1'>
+          <h1 className='font-bold text-xl text-darkgrey'>Little Lemon</h1>
+          <h2 className='font-bold text-lightgrey'>chicago</h2>
+          <p className='text-lightgrey mt-4'>Lorem ipsum dolor sit amet, 
+          consectetur adipisicing elit. Magnam tempora esse assumenda, perspiciatis
+           neque laudantium ipsam reiciendis hic a eum voluptatem
+           deserunt sint odit rerum, totam explicabo, nam beatae blanditiis!
+          </p>
 
-        <button>Says something</button>
-      </div>
+          <button className=' bg-green w-20 p-2 rounded-full mt-10 text-whitish hover:shadow-md hover:scale-105'>Menu</button>
+        </div>
 
-      <div className='cocol-span-2'>
-        <img src='./logo.svg'></img>
+        <div className='cocol-span-2'>
+          <img src='./logo.svg'></img>
+        </div>
       </div>
     </div>
-  </div>
   )
 }
 
