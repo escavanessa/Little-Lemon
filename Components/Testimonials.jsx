@@ -4,7 +4,7 @@ export const Testimonials = () => {
   return (
     <>
       <div className='Test flex justify-center mt-12 bg-whitish p-10'>
-        <h1 className='font-bold text-darkgrey'>Testimonials</h1>
+        <h1 className='font-bold text-darkgrey text-xl'>Testimonials</h1>
       </div>
       <div className='test conainer flex justify-center items-center bg-whitish'>
         <div className='card container grid grid-cols-4 gap-6 mt-6 m-8 h-[300px]'>
