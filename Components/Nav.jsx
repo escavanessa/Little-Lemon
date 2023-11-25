@@ -5,7 +5,7 @@ export const Nav = () => {
   return (
     <div className='navbar flex justify-between mt-4 p-10'>
         <div className='logoDiv'>
-          <img className='ml-4' src=''alt='image'></img>
+          <img className='ml-4' src='/Logo.svg'alt='image'></img>
         </div>
 
 
