@@ -17,7 +17,7 @@ export const Hero = () => {
         </div>
 
         <div className='cocol-span-2'>
-          <img src='/Mario and Adrian A.jpg'></img>
+          <img className='rounded-lg' src='/Mario and Adrian A.jpg'></img>
         </div>
       </div>
     </div>

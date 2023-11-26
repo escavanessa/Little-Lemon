@@ -3,7 +3,7 @@ import React from 'react'
 export const Testimonials = () => {
   return (
     <>
-      <div className='Test flex justify-center mt-12 bg-whitish p-10'>
+      <div className='Test flex justify-center mt-80 bg-whitish p-10'>
         <h1 className='font-bold text-darkgrey'>Testimonials</h1>
       </div>
       <div className='test conainer flex justify-center items-center bg-whitish'>
