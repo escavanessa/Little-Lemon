@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react'
+import Nav from './Nav'
 
 //const booking = {
 //    name: '',
@@ -63,6 +64,7 @@ export const Booking = () => {
 
     return (
         <>
+        <Nav />
             <div className='flex justify-center items-center m-8'>
                 <form className='flex flex-col m-8'>
                     <label className='mt-8'>Name</label>
