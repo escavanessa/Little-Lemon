@@ -7,6 +7,10 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import './index.css'
+import api from './API.js';
+
+
+
 
 const router = createBrowserRouter([
   {
@@ -15,7 +19,7 @@ const router = createBrowserRouter([
   },
   {
     path: "booking",
-    element: <Booking /> ,
+    element: <Booking api={api} /> ,
   },
 
 ]);

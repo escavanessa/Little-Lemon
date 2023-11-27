@@ -1,26 +1,104 @@
 import React from "react"
 import { useState } from "react"
 
-const [availableDates, setAvailableDates] = useState([
-    {
-        name: '',
-        guests: '',
-        time: '',
-        selectedSlot: '',
-        date: '',
-        occasion: '',
-        selected: true
+
+
+export const api = () => {
+    const [availableDates, setAvailableDates] = useState([
+        {
+            name: '',
+            guests: '',
+            time: [
+                {
+                    time: '11:30',
+                    amount: 6
+                },
+                {
+                    time: '12:30',
+                    amount: 6
+                },
+                {
+                    time: '1:30',
+                    amount: 6
+                },
+                {
+                    time: '2:30',
+                    amount: 6
+                },
+            ],
+            date: '12/3/2023',
+            occasion: '',
+            selected: true
+        },
+        {
+            name: '',
+            guests: '',
+            time: [
+                {
+                    time: '11:30',
+                    amount: 6
+                },
+                {
+                    time: '12:30',
+                    amount: 6
+                },
+                {
+                    time: '1:30',
+                    amount: 6
+                },
+                {
+                    time: '2:30',
+                    amount: 6
+                },
+            ],
+            date: '12/4/2023',
+            occasion: '',
+            selected: true
+        },
+        {
+            name: '',
+            guests: '',
+            time: [
+                {
+                    time: '11:30',
+                    amount: 6
+                },
+                {
+                    time: '12:30',
+                    amount: 6
+                },
+                {
+                    time: '1:30',
+                    amount: 6
+                },
+                {
+                    time: '2:30',
+                    amount: 6
+                },
+            ],
+            date: '12/5/2023',
+            occasion: '',
+            selected: true
+        }
+    ])
+
+
+    function updateDate () {
+
     }
-])
 
-let api = {}
+    function getAvailableDates() {
+        return availableDates
+    }
 
-api.updateDate = function () {
-
-}
-
-api.getAvailableDates = function () {
-    return availableDates
+    return (
+        {
+            updateDate: updateDate,
+            getAvailableDates: getAvailableDates
+        }
+    )
 }
 
 export default api
+
+

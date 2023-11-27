@@ -1,6 +1,8 @@
 
 import React, { useState } from 'react'
 import Nav from './Nav'
+//import {getAvailableDates, updateDate} from '../src/API'
+import api from '../src/API'
 
 //const booking = {
 //    name: '',
@@ -17,6 +19,8 @@ import Nav from './Nav'
 export const Booking = () => {
     const [booking, Setbooking] = useState({})
 
+    let timeSelectionEnabled = false
+
 
     function handleClickName(e) {
         const updateName = {...booking, name: e.target.value}
@@ -27,6 +31,7 @@ export const Booking = () => {
 
     function handleChangeDate(e) {
         const updateDate = {...booking, date: e.target.value}
+        timeSelectionEnabled = true
         console.log(updateDate)
         Setbooking(updateDate);
     }
@@ -59,7 +64,9 @@ export const Booking = () => {
 
 
 
+//console.log(api().getAvailableDates())
 
+const availableDates = api().getAvailableDates()
 
 
     return (
@@ -72,11 +79,24 @@ export const Booking = () => {
                     value={booking.name}
                     onChange={(e) => handleClickName(e)}
                     className='mt-4 border' type='text' placeholder='Name'></input>
+
+
                     <label className='mt-8'>Date</label>
-                    <input 
+                    <select
                     value={booking.date}
                     onChange={(e) => handleChangeDate(e)}
-                    className='mt-4 border' type='date'></input>
+                    className='mt-4 border'>
+                        {
+                            availableDates.map((date, index) => {
+                                return(
+                                    <option key={index} value={date.date}>{date.date}</option>
+                                )
+                            })
+                        }
+                    </select>
+
+
+
                     <label className='mt-8'>Choose Time</label>
                     <select 
                     value={booking.time}
