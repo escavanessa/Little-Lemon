@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 export const Nav = () => {
   return (
-    <div className='navbar flex justify-between mt-4 p-10'>
+    <nav className='navbar flex justify-between mt-4 p-10'>
         <div className='logoDiv'>
           <img className='ml-4' src='/Logo.svg'alt='image'></img>
         </div>
@@ -18,7 +18,7 @@ export const Nav = () => {
           <li className='ml-4 text-darkgrey border-white hover:border-b-4 hover:border-yellow'><a href=''></a>About</li>
           <li className='ml-4 text-darkgrey border-white hover:border-b-4 hover:border-yellow'><a href=''></a>Contact</li>
         </ul>
-      </div>
+      </nav>
   )
 }
 
