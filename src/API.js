@@ -10,19 +10,19 @@ export const api = () => {
             guests: '',
             time: [
                 {
-                    time: '11:30',
+                    time: '11:00',
                     amount: 6
                 },
                 {
-                    time: '12:30',
+                    time: '12:00',
                     amount: 6
                 },
                 {
-                    time: '1:30',
+                    time: '1:00',
                     amount: 6
                 },
                 {
-                    time: '2:30',
+                    time: '2:00',
                     amount: 6
                 },
             ],
