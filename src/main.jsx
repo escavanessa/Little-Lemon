@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import './index.css'
 import api from './API.js';
+import Confirmation from '../Components/Confirmation.jsx';
 
 
 
@@ -21,6 +22,11 @@ const router = createBrowserRouter([
     path: "booking",
     element: <Booking api={api} /> ,
   },
+  {
+    path: "confirmation",
+    element: <Confirmation /> ,
+  },
+  
 
 ]);
 

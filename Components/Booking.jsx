@@ -1,8 +1,9 @@
 
 import React, { useState } from 'react'
 import Nav from './Nav'
-//import {getAvailableDates, updateDate} from '../src/API'
 import api from '../src/API'
+import { useNavigate } from "react-router-dom";
+
 
 //const booking = {
 //    name: '',
@@ -17,9 +18,13 @@ import api from '../src/API'
 
 
 export const Booking = () => {
-    const availableDates = api().getAvailableDates()
+    const apiInstance = api()
+    const availableDates = apiInstance.getAvailableDates()
+    const navigate = useNavigate();
 
     const [newTime, setNewTime] = useState([])
+
+    const [errorMessage, setErrorMessage] = useState('')
 
     const [booking, Setbooking] = useState(
         {
@@ -31,6 +36,7 @@ export const Booking = () => {
             occasion: '',
         }
     )
+
 
 
     let timeSelectionEnabled = false
@@ -77,8 +83,19 @@ export const Booking = () => {
     }
 
     function handleSubmit(e) {
-        e.preventDefualt()
+        e.preventDefault()
+        //all the information
+        console.log(e)
+        //error message
 
+        //update data
+        if(!booking.date || !booking.name || !booking.guests || !booking.occasion || !booking.time) {
+            setErrorMessage('please fill out form')
+            return;
+        }
+
+        apiInstance.updateDate(booking)
+         navigate("/confirmation", { state: { booking: booking} });
     }
 
 
@@ -125,7 +142,9 @@ export const Booking = () => {
                         {
                             newTime.map((time, index) => {
                                 return (
-                                    <option key={index} value={time.time}>{time.time}</option>
+                                    <option key={index} value={time.time} 
+                                    disabled={time.amount < 1}
+                                    >{time.time}</option>
                                 )
                             })
 
@@ -154,7 +173,9 @@ export const Booking = () => {
                     <button
                         onClick={handleSubmit}
                         className='mt-8 border' type='submit'>submit</button>
-
+                        <div className=''>
+                            {errorMessage}
+                        </div>
                 </form>
 
             </div >
