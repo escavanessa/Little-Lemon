@@ -77,7 +77,20 @@ export const api = () => {
     ])
 
 
-    function updateDate (booking) {
+    /**
+ * checking to see if form date matches avaiable dates date - then checking for matching times - then decrementing the amount by 1/ finally updating array.
+ * @param  {Object} booking [object with data user entered //const booking = {
+//    name: '',
+//    guests: '' ,
+//    time: '',
+//    selectedSlot: '',
+//    date: '',
+//    occasion: '',
+//    selected: true
+//}]
+ * @return {undefined} [updates available dates array]
+ */
+    function updateDate(booking) {
         //decrementing amount
         const foundDate = availableDates.find((element) => element.date === booking.date);
         const foundTime = foundDate.time.find((element) => element.time === booking.time);
@@ -87,13 +100,19 @@ export const api = () => {
         console.log('availabledates', availableDates)
         //updating array of booking
         foundDate.bookings.push(booking);
-        
+
     }
 
+
+    /**
+ * returns the data
+ * @return {Array} [returns availableDates data]
+ */
     function getAvailableDates() {
         return availableDates
     }
 
+    
     return (
         {
             updateDate: updateDate,

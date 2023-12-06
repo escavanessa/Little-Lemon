@@ -10,8 +10,12 @@ const Confirmation = () => {
   return (
     <>
         <Nav />
-        <div>Confirmation Page!</div>
-        
+        <h1>Confirmation</h1>
+        <h1>{booked.name}</h1>
+        <h1>{booked.date}</h1>
+        <h1>{booked.time}</h1>
+        <h1>{booked.guests}</h1>
+        <h1>{booked.occasion}</h1>
     </>
 
   )

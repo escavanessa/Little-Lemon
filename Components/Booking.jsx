@@ -42,13 +42,24 @@ export const Booking = () => {
     let timeSelectionEnabled = false
 
 
+
+    /**
+     * handle name input
+     * @param  {Object} e [js event]
+     * @return {undefined} [updates name in form]
+     */
     function handleClickName(e) {
         const updateName = { ...booking, name: e.target.value }
         console.log(updateName)
         Setbooking(updateName);
     }
 
-
+    /**
+     * handle date selection
+     * @param  {Object} e [js event]
+     * @return {undefined} [updates date in state/ update available time depending on date
+     * / turns on time selection after date selection]
+     */
     function handleChangeDate(e) {
         const updateDate = { ...booking, date: e.target.value }
         let selectedDate = e.target.value
@@ -61,7 +72,11 @@ export const Booking = () => {
         Setbooking(updateDate);
     }
 
-
+    /**
+     * handle change guest amount
+     * @param  {Object} e [js event]
+     * @return {undefined} [updates guest in form]
+     */
     function handleChangeGuests(e) {
         const updateGuests = { ...booking, guests: e.target.value }
         console.log(updateGuests)
@@ -69,6 +84,11 @@ export const Booking = () => {
     }
 
 
+    /**
+     * handle change time
+     * @param  {Object} e [js event]
+     * @return {undefined} [updates time in form]
+     */
     function handleChangeTime(e) {
         const updateTime = { ...booking, time: e.target.value }
         console.log(updateTime)
@@ -76,31 +96,40 @@ export const Booking = () => {
     }
 
 
+    /**
+ * handle change occasion
+ * @param  {Object} e [js event]
+ * @return {undefined} [updates occasion in form]
+ */
     function handleChangeOccasion(e) {
         const updateOccasion = { ...booking, occasion: e.target.value }
         console.log(updateOccasion)
         Setbooking(updateOccasion);
     }
 
+
+
+    /**
+ * handle submit
+ * @param  {Object} e [js event]
+ * @return {undefined} [validating data/ updating API/ redirecting user]
+ * @return {undefined} [updates guest in form]
+ */
     function handleSubmit(e) {
         e.preventDefault()
-        //all the information
         console.log(e)
-        //error message
-
-        //update data
-        if(!booking.date || !booking.name || !booking.guests || !booking.occasion || !booking.time) {
+        if (!booking.date || !booking.name || !booking.guests || !booking.occasion || !booking.time) {
             setErrorMessage('please fill out form')
             return;
         }
-
+        //update data
         apiInstance.updateDate(booking)
-         navigate("/confirmation", { state: { booking: booking} });
+        navigate("/confirmation", { state: { booking: booking } });
     }
 
 
 
-    //console.log(api().getAvailableDates())
+
 
 
 
@@ -142,8 +171,8 @@ export const Booking = () => {
                         {
                             newTime.map((time, index) => {
                                 return (
-                                    <option key={index} value={time.time} 
-                                    disabled={time.amount < 1}
+                                    <option key={index} value={time.time}
+                                        disabled={time.amount < 1}
                                     >{time.time}</option>
                                 )
                             })
@@ -173,9 +202,9 @@ export const Booking = () => {
                     <button
                         onClick={handleSubmit}
                         className='mt-8 border' type='submit'>submit</button>
-                        <div className=''>
-                            {errorMessage}
-                        </div>
+                    <div className=''>
+                        {errorMessage}
+                    </div>
                 </form>
 
             </div >
