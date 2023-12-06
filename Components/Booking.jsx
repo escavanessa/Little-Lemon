@@ -137,7 +137,7 @@ export const Booking = () => {
         <>
             <Nav />
             <div className='flex justify-center items-center m-8'>
-                <form className='flex flex-col m-8'>
+                <form className='flex flex-col m-8 bg-whitish p-10 rounded-lg'>
                     <label className='mt-8'>Name</label>
                     <input
                         value={booking.name}
@@ -201,7 +201,7 @@ export const Booking = () => {
 
                     <button
                         onClick={handleSubmit}
-                        className='mt-8 border' type='submit'>submit</button>
+                        className='mt-8 border rounded-md bg-white hover:bg-green hover:text-whitish' type='submit'>submit</button>
                     <div className=''>
                         {errorMessage}
                     </div>
