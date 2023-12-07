@@ -43,6 +43,29 @@ export const Booking = () => {
 
 
 
+    //  const validateValues = (booking) => {
+    //     let errors = {};
+    //      if (booking.name.length == '') {
+    //          errors.name = "Please enter a name";
+    //      }
+    //      if (booking.guests.length <= 1) {
+    //          errors.guests = "Please choose amount";
+    //      }
+    //      if (booking.date == '') {
+    //          errors.date = "Please choose a date";
+    //      }
+    //      if (booking.time == '') {
+    //          errors.date = "Please choose a time";
+    //      }
+    //      if (booking.occasion == '') {
+    //          errors.occasion = "Please choose an occasion";
+    //      }
+    //      return errors;
+    //   };
+
+
+
+
     /**
      * handle name input
      * @param  {Object} e [js event]
@@ -118,11 +141,12 @@ export const Booking = () => {
     function handleSubmit(e) {
         e.preventDefault()
         console.log(e)
-        if (!booking.date || !booking.name || !booking.guests || !booking.occasion || !booking.time) {
-            setErrorMessage('please fill out form')
-            return;
-        }
+                if (!booking.date || !booking.name || !booking.guests || !booking.occasion || !booking.time) {
+                    setErrorMessage('please fill out form')
+                 return;
+                }
         //update data
+        setErrorMessage(validateValues(booking))
         apiInstance.updateDate(booking)
         navigate("/confirmation", { state: { booking: booking } });
     }
@@ -196,6 +220,7 @@ export const Booking = () => {
                         <option>Birthday</option>
                         <option>Anniversary</option>
                         <option>Party</option>
+                        <option>Other</option>
                     </select>
 
 
