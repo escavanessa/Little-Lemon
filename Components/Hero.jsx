@@ -13,8 +13,7 @@ export const Hero = () => {
            deserunt sint odit rerum, totam explicabo, nam beatae blanditiis!
           </p>
 
-          <button className=' bg-green w-20 p-2 rounded-full mt-10 text-whitish ease-in-out duration-300  hover:shadow-md hover:scale-105'>Menu</button>
-
+          <button className='menu-btn bg-green w-20 p-2 rounded-full mt-10 text-whitish hover:shadow-md hover:scale-105'>Menu</button>
         </div>
 
         <div className='cocol-span-2'>

@@ -1,6 +1,6 @@
 # React + Vite
 
-This is my CapStone for little-lemon. The coursera API provided DID NOT WORK. IT DOESNT WORK. I needed to build an API from scratch so there is an API.js file in this project that houses it.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
 
