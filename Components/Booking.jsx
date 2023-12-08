@@ -141,7 +141,7 @@ export const Booking = () => {
             return;
         }
         //update data
-        setErrorMessage(validateValues(booking))
+        setErrorMessage(booking)
         apiInstance.updateDate(booking)
         navigate("/confirmation", { state: { booking: booking } });
     }
