@@ -16,6 +16,14 @@ import { useNavigate } from "react-router-dom";
 //}
 
 
+const FormFieldErrorMessage = (props) => {
+    return (
+        <div className="FieldError">{props.msg}</div>
+    );
+};
+
+
+
 
 export const Booking = () => {
     const apiInstance = api()
@@ -36,32 +44,19 @@ export const Booking = () => {
             occasion: '',
         }
     )
-
+    const [isTouched, setIsTouched] = useState(
+        {
+            name: false,
+            guests: false,
+            time: false,
+            selectedSlot: false,
+            date: false,
+            occasion: false,
+        }
+    )
 
 
     let timeSelectionEnabled = false
-
-
-
-    //  const validateValues = (booking) => {
-    //     let errors = {};
-    //      if (booking.name.length == '') {
-    //          errors.name = "Please enter a name";
-    //      }
-    //      if (booking.guests.length <= 1) {
-    //          errors.guests = "Please choose amount";
-    //      }
-    //      if (booking.date == '') {
-    //          errors.date = "Please choose a date";
-    //      }
-    //      if (booking.time == '') {
-    //          errors.date = "Please choose a time";
-    //      }
-    //      if (booking.occasion == '') {
-    //          errors.occasion = "Please choose an occasion";
-    //      }
-    //      return errors;
-    //   };
 
 
 
@@ -120,10 +115,10 @@ export const Booking = () => {
 
 
     /**
- * handle change occasion
- * @param  {Object} e [js event]
- * @return {undefined} [updates occasion in form]
- */
+    * handle change occasion
+    * @param  {Object} e [js event]
+    * @return {undefined} [updates occasion in form]
+    */
     function handleChangeOccasion(e) {
         const updateOccasion = { ...booking, occasion: e.target.value }
         console.log(updateOccasion)
@@ -133,18 +128,18 @@ export const Booking = () => {
 
 
     /**
- * handle submit
- * @param  {Object} e [js event]
- * @return {undefined} [validating data/ updating API/ redirecting user]
- * @return {undefined} [updates guest in form]
- */
+    * handle submit
+    * @param  {Object} e [js event]
+    * @return {undefined} [validating data/ updating API/ redirecting user]
+    * @return {undefined} [updates guest in form]
+    */
     function handleSubmit(e) {
         e.preventDefault()
         console.log(e)
-                if (!booking.date || !booking.name || !booking.guests || !booking.occasion || !booking.time) {
-                    setErrorMessage('please fill out form')
-                 return;
-                }
+        if (!booking.date || !booking.name || !booking.guests || !booking.occasion || !booking.time) {
+            setErrorMessage('please fill out form')
+            return;
+        }
         //update data
         setErrorMessage(validateValues(booking))
         apiInstance.updateDate(booking)
@@ -162,18 +157,25 @@ export const Booking = () => {
             <Nav />
             <div className='flex justify-center items-center m-8'>
                 <form className='flex flex-col m-8 bg-whitish p-10 rounded-lg'>
-                    <label className='mt-8'>Name</label>
+                    <label for="booking-name" className='mt-8'>Name</label>
                     <input
                         value={booking.name}
                         onChange={(e) => handleClickName(e)}
-                        className='mt-4 border' type='text' placeholder='Name'></input>
+                        onBlur={() => {
+                            setIsTouched({ ...isTouched, name: true });
+                        }}
+                        className='mt-4 border' type='text' id='booking-name' placeholder='Name'></input>
+                    {isTouched.name && !booking.name ? (<FormFieldErrorMessage msg={"please enter a name"} />) : ''}
 
 
-                    <label className='mt-8'>Date</label>
+                    <label for="booking-date" className='mt-8'>Date</label>
                     <select
                         value={booking.date}
                         onChange={(e) => handleChangeDate(e)}
-                        className='mt-4 border'>
+                        onBlur={() => {
+                            setIsTouched({ ...isTouched, date: true });
+                        }}
+                        className='mt-4 border' id='booking-date'>
                         <option value=''>--Select a date--</option>
                         {
                             availableDates.map((date, index) => {
@@ -183,14 +185,19 @@ export const Booking = () => {
                             })
                         }
                     </select>
+                    {isTouched.date && !booking.date ? (<FormFieldErrorMessage msg={"please choose a date"} />) : ''}
 
 
-
-                    <label className='mt-8'>Choose Time</label>
+                    <label for="booking-time" className='mt-8'>Choose Time</label>
                     <select
                         value={booking.time}
                         onChange={(e) => handleChangeTime(e)}
-                        className='border' id='select-time' disabled={!booking.date}>
+                        onBlur={() => {
+                            setIsTouched({ ...isTouched, time: true });
+                        }}
+
+
+                        className='border' id='booking-time' disabled={!booking.date}>
                         <option value=''>--Select a time--</option>
                         {
                             newTime.map((time, index) => {
@@ -203,25 +210,35 @@ export const Booking = () => {
 
                         }
                     </select>
+                    {isTouched.time && !booking.time ? (<FormFieldErrorMessage msg={"please choose a time"} />) : ''}
 
-
-                    <label className='mt-8'>Number of Guests</label>
+                    <label for="booking-guests" className='mt-8'>Number of Guests</label>
                     <input
                         value={booking.guests}
                         onChange={(e) => handleChangeGuests(e)}
-                        className='mt-4 border' type='number' placeholder='1' min="1" max='10' id='guests'></input>
+                        onBlur={() => {
+                            setIsTouched({ ...isTouched, guests: true });
+                        }}
+                        className='mt-4 border'  type='number' placeholder='1' min="1" max='10' id='booking-guests'></input>
+                    {isTouched.guests && !booking.guests ? (<FormFieldErrorMessage msg={"please enter party size"} />) : ''}
+                    {isTouched.guests && (booking.guests > 10) ? (<FormFieldErrorMessage msg={"party size less than 10"} />) : ''}
 
 
-                    <label className='mt-8'>Occasion</label>
+                    <label for="booking-occasion" className='mt-8'>Occasion</label>
                     <select
                         value={booking.occasion}
                         onChange={(e) => handleChangeOccasion(e)}
-                        className='mt-4 border' id='occasion'>
+                        onBlur={() => {
+                            setIsTouched({ ...isTouched, occasion: true });
+                        }}
+                        className='mt-4 border' id='booking-occasion'>
+                        <option value=''>--Select an occasion--</option>
                         <option>Birthday</option>
                         <option>Anniversary</option>
                         <option>Party</option>
                         <option>Other</option>
                     </select>
+                    {isTouched.occasion && !booking.occasion ? (<FormFieldErrorMessage msg={"please choose an occasion"} />) : ''}
 
 
                     <button
