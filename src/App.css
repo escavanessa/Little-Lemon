@@ -1,0 +1,33 @@
+@media (max-width: 480px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-end;
+        }
+
+    nav ul {
+        display: none; 
+        flex-direction: column;
+        width: 100%;
+        text-align: end;
+        margin-top: 20px;
+    }
+
+    .heroWrapper{
+        flex-direction: column;
+    }
+
+    .cardWrapper{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .menu-btn{
+        margin-bottom: 6px;
+    }
+
+    /* ----- THE ABOVE IS FOR NAV BAR AND HERO ----- */
+
+
+
+}
+
