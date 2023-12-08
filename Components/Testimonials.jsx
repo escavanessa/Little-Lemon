@@ -3,8 +3,9 @@ import React from 'react'
 export const Testimonials = () => {
   return (
     <>
-      <div className='Testimonial flex justify-center mt-80 bg-whitish p-10'>
-        <h1 className='font-bold text-darkgrey'>Testimonials</h1>
+
+      <div className='Test flex justify-center mt-12 bg-whitish p-10'>
+        <h1 className='font-bold text-darkgrey text-xl'>Testimonials</h1>
       </div>
       <div className='test-container flex justify-center items-center bg-whitish'>
         <div className='cardtest-container sm:grid grid-cols-4 gap-6 mt-6 m-8 sm:h-[300px]'>
