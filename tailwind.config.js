@@ -3,6 +3,7 @@ export default {
   content: [
     "./index.html",
     "./components/**/*.{js,jsx,}",
+    "./src/**/*.{js,jsx,css}"
   ],
   theme: {
     screens: {
