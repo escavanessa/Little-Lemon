@@ -12,8 +12,8 @@ export const About = () => {
         </div>
 
         <div className='images col-span-1 relative'>
-          <img className='absolute w-90 h-60 rounded-lg right-0 top-0' src='/Mario and Adrian A.jpg'></img>
-          <img className='absolute w-90 h-60 rounded-lg top-20 left-10' src='/Mario and Adrian b.jpg'></img>
+          <img className='absolute w-90 h-60 rounded-lg right-0 top-0' src='/Little-Lemon//Mario and Adrian A.jpg'></img>
+          <img className='absolute w-90 h-60 rounded-lg top-20 left-10' src='/Little-Lemon//Mario and Adrian b.jpg'></img>
         </div>
       </div>
     </div>

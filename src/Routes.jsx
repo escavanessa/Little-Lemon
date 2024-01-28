@@ -5,15 +5,15 @@ import Confirmation from '../Components/Confirmation.jsx';
 
 const Router = [
     {
-      path: "/",
+      path: "/Little-Lemon",
       element: <App />,
     },
     {
-      path: "booking",
+      path: "/Little-Lemon/booking",
       element: <Booking api={api} /> ,
     },
     {
-      path: "confirmation",
+      path: "/Little-Lemon/confirmation",
       element: <Confirmation /> ,
     },
     

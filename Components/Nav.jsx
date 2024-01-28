@@ -10,11 +10,11 @@ export const Nav = () => {
   return (
     <nav className='navbar flex justify-between mt-4 p-10'>
       <div className='logoDiv'>
-        <img className='ml-4' src='/Logo.svg' alt='image'></img>
+        <img className='ml-4' src='/Little-Lemon//Logo.svg' alt='image'></img>
       </div>
 
         <ul className='menu flex'>
-          <li className='ml-4 text-darkgrey border-b-4 border-white hover:border-b-4 hover:border-yellow'><Link to={`/`}>Home</Link></li>
+          <li className='ml-4 text-darkgrey border-b-4 border-white hover:border-b-4 hover:border-yellow'><Link to={`/Little-Lemon`}>Home</Link></li>
           <li className='ml-4 text-darkgrey border-white hover:border-b-4 hover:border-yellow'><a href=''></a>Order</li>
           <li className='ml-4 text-darkgrey border-white hover:border-b-4 hover:border-yellow'><a href=''></a>Menu</li>
           <li className='ml-4 text-darkgrey border-white hover:border-b-4 hover:border-yellow'><Link to={`booking`}>Reservation</Link></li>

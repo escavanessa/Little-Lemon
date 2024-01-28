@@ -5,7 +5,7 @@ export const Footer = () => {
     <div className='footer flex justify-center items-center sm:mt-20 mb-10 bg-whitish p-20'>
       <div className='column sm:grid grid-cols-3'>
         <div className='column grid-cols-1 w-[200px]'>
-          <img className='mb-8' src='/Logo.svg'></img>
+          <img className='mb-8' src='/Little-Lemon//Logo.svg'></img>
         </div>
 
         <div className='grid-cols-1 w-[200px]'>

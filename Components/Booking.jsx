@@ -143,7 +143,7 @@ export const Booking = () => {
         //update data
         setErrorMessage(booking)
         apiInstance.updateDate(booking)
-        navigate("/confirmation", { state: { booking: booking } });
+        navigate("/Little-Lemon/confirmation", { state: { booking: booking } });
     }
 
 
