@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react'
 import Nav from './Nav'
-import api from '../src/API'
+import api from '../API'
 import { useNavigate } from "react-router-dom";
 
 
