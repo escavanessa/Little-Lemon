@@ -2,9 +2,9 @@
 export default {
   content: [
     "./*.html",
-    "./components/**/*.{js,jsx,}",
-    "./src/**/*.{js,jsx,css}",
-    "./assets/**/*.{js,jsx,css}",
+    "./components/*.{js,jsx}",
+    "./src/*.{js,jsx,css}",
+    "./assets/*.{js,jsx,css}",
   ],
   theme: {
     screens: {
